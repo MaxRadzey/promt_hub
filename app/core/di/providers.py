@@ -1,6 +1,7 @@
 from collections.abc import AsyncIterator
 
 import asyncpg
+from asyncpg.pool import PoolConnectionProxy
 from dishka import Provider, Scope, provide
 
 from app.core.database.pool import create_pool
@@ -25,6 +26,6 @@ class DefaultProvider(Provider):
         await pool.close()
 
     @provide(scope=Scope.REQUEST)
-    async def get_connection(self, pool: asyncpg.Pool) -> AsyncIterator[asyncpg.Connection]:
+    async def get_connection(self, pool: asyncpg.Pool) -> AsyncIterator[PoolConnectionProxy[asyncpg.Record]]:
         async with pool.acquire() as conn:
             yield conn

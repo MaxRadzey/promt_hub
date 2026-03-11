@@ -11,6 +11,7 @@ orjson==3.11.7
 # lint
 ruff==0.8.4
 mypy==1.13.0
+asyncpg-stubs==0.31.2
 
 # tests
 pytest==8.3.4
