@@ -1,0 +1,6 @@
+asyncpg==0.30.0
+dishka==0.5.0
+fastapi==0.115.6
+pydantic-settings==2.6.1
+typer[standard]==0.15.1
+uvicorn[standard]==0.32.1
