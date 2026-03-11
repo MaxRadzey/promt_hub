@@ -1,9 +1,9 @@
 from contextlib import asynccontextmanager
 
 from asyncpg.pool import Pool
-from app.core.settings import Config
-
 from fastapi import FastAPI
+
+from app.core.settings import Config
 
 
 @asynccontextmanager
