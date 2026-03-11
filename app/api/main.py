@@ -15,7 +15,9 @@ def start_app() -> FastAPI:
     for router in routers:
         app.include_router(router)
 
-    providers = [DefaultProvider(),]
+    providers = [
+        DefaultProvider(),
+    ]
     container = make_async_container(*providers)
     setup_dishka(container, app)
 

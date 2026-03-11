@@ -5,15 +5,23 @@ repos:
     hooks:
       - id: ruff
         args: [--fix]
-        types_or: [python, pyi]
+        stages: [pre-commit]
+
       - id: ruff-format
-        types_or: [python, pyi]
+        stages: [pre-commit]
+      
+      - id: ruff
+        stages: [manual]
+
+      - id: ruff-format
+        args: [--diff]
+        stages: [manual]
 
   # Mypy
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.13.0
+  - repo: local
     hooks:
       - id: mypy
-        additional_dependencies: [asyncpg-stubs==0.31.2]
-        args: [.]
+        name: mypy
+        language: system
+        entry: mypy --config-file pyproject.toml .
         pass_filenames: false
