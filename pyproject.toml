@@ -26,3 +26,24 @@ ignore = [
     "B008",   # Function call in default argument
     "UP007",  # Use X | Y for Union
 ]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_ignores = true
+exclude = [
+    "\\.venv/",
+    "build/",
+    "dist/",
+    "__pycache__/",
+    "\\.git/",
+]
+
+# Пакеты без стабов или с шумной типизацией — не проверяем
+[[tool.mypy.overrides]]
+module = [
+    "orjson",
+    "uvicorn.logging",
+    "typer.main",
+]
+follow_imports = "skip"
