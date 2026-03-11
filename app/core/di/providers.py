@@ -2,8 +2,8 @@ from collections.abc import AsyncIterator
 
 import asyncpg
 from dishka import Provider, Scope, provide
-from app.core.database.pool import create_pool
 
+from app.core.database.pool import create_pool
 from app.core.settings import Config
 
 

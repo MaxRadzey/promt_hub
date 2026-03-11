@@ -1,14 +1,13 @@
 import asyncio
 
 import asyncpg
+import pytest
+from dishka import AsyncContainer, make_async_container
 from dishka.integrations.fastapi import setup_dishka
 from fastapi import FastAPI
 from httpx import ASGITransport, AsyncClient
-import pytest
-from dishka import AsyncContainer, make_async_container
 
 from app.api.application import create_app
-
 from app.core.di.providers import DefaultProvider
 from app.core.settings import Config
 

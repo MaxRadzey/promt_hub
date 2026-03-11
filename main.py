@@ -1,8 +1,8 @@
 import uvicorn
 from typer import Typer
 
-from app.core.settings import Config
 from app.api.main import start_app
+from app.core.settings import Config
 
 cli = Typer()
 config = Config()
