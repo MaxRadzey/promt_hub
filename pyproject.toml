@@ -1,0 +1,49 @@
+[project]
+name = "promt_hub"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+exclude = [".git", ".venv", "__pycache__", "build", "dist", "coverage-report"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4", "SIM"]
+ignore = [
+    "D100",   # Missing docstring in public module
+    "D104",   # Missing docstring in public package
+    "D107",   # Missing docstring in __init__
+    "S101",   # Use of assert
+    "ERA001", # Commented out code
+    "COM812", # Trailing comma missing
+    "PLR0913", # Too many arguments
+    "PLR2004", # Magic value in comparison
+    "B008",   # Function call in default argument
+    "UP007",  # Use X | Y for Union
+]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_ignores = true
+exclude = [
+    "\\.venv/",
+    "build/",
+    "dist/",
+    "__pycache__/",
+    "\\.git/",
+]
+
+# Пакеты без стабов или с шумной типизацией — не проверяем
+[[tool.mypy.overrides]]
+module = [
+    "orjson",
+    "uvicorn.logging",
+    "typer.main",
+]
+follow_imports = "skip"

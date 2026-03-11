@@ -1,0 +1,11 @@
+version: "3"
+
+tasks:
+  local:
+    desc: "Запустить проект локально через Docker Compose"
+    cmd: docker compose -f docker-compose.yml up -d
+
+  test:
+      desc: Запуск тестов
+      cmd:
+        pytest -s -vv tests/ --junitxml coverage-report/tests-unit-results.xml --cov=app --cov-report='xml:coverage-report/coverage-tests-unit.xml'

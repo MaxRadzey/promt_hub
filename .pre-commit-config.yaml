@@ -1,0 +1,27 @@
+repos:
+  # Ruff
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+        stages: [pre-commit]
+
+      - id: ruff-format
+        stages: [pre-commit]
+      
+      - id: ruff
+        stages: [manual]
+
+      - id: ruff-format
+        args: [--diff]
+        stages: [manual]
+
+  # Mypy
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy
+        language: system
+        entry: mypy --config-file pyproject.toml .
+        pass_filenames: false

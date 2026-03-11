@@ -1,0 +1,20 @@
+# general
+asyncpg==0.31.0
+dishka==1.9.1
+fastapi==0.115.6
+pydantic-settings==2.6.1
+typer[standard]==0.15.1
+uvicorn[standard]==0.32.1
+httpx==0.28.1
+orjson==3.11.7
+
+# lint
+pre-commit==4.5.1
+ruff==0.8.4
+mypy==1.13.0
+asyncpg-stubs==0.31.2
+
+# tests
+pytest==8.3.4
+pytest-asyncio==0.24.0
+pytest-cov==7.0.0
